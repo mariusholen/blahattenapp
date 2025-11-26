@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { CheckCircle2 } from "lucide-react";
+import { Note, SubHeader, TitleH11 } from "@/components/PageTitle";
+import { CTA } from "@/components/CTA";
 
 const LandingPage = () => {
 	const navigate = useNavigate();
@@ -10,25 +11,16 @@ const LandingPage = () => {
 		<div className="min-h-screen bg-background flex items-center justify-center p-4">
 			<Card className="max-w-2xl w-full p-8 md:p-12 space-y-8">
 				<div className="space-y-4 text-center">
-					<h1 className="text-4xl md:text-5xl font-bold text-foreground">
-						Digital assessment for muscle and joint pain
-					</h1>
-					<p className="text-lg text-muted-foreground max-w-xl mx-auto">
-						Get personalized insights about your musculoskeletal symptoms in
-						just a few minutes. This assessment tool helps you understand
-						potential causes and next steps for your care.
-					</p>
-					<p className="text-sm text-muted-foreground italic">
-						Note: This is a digital assessment tool, not a replacement for
-						professional medical advice.
-					</p>
+					<TitleH11 text="Digital vurdering av muskel- og skjelettplager" />
+					<SubHeader text="Få en enkel, rask og strukturert vurdering av smerter i muskler og ledd." />
+					<Note text="Merk: Dette er en prototype og viser hvordan en digital vurdering kan fungere. Det er ikke et substitutt for profesjonell medisinsk rådgivning." />
 				</div>
 
 				<div className="space-y-4 py-6">
 					{[
-						"Takes 2–3 minutes",
-						"Based on professional knowledge",
-						"No login required",
+						"Tar 2–3 minutter å fullføre",
+						"Basert på kliniske retningslinjer",
+						"Ingen innlogging eller lagring av data",
 					].map((point, index) => (
 						<div key={index} className="flex items-center gap-3">
 							<CheckCircle2 className="h-6 w-6 text-secondary flex-shrink-0" />
@@ -36,14 +28,7 @@ const LandingPage = () => {
 						</div>
 					))}
 				</div>
-
-				<Button
-					onClick={() => navigate("/intake")}
-					size="lg"
-					className="w-full text-lg py-6"
-				>
-					Start assessment
-				</Button>
+				<CTA text="Start vurdering" onClick={() => navigate("/intake")} />
 			</Card>
 		</div>
 	);

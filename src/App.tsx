@@ -8,25 +8,28 @@ import IntakePage from "./pages/IntakePage";
 import SummaryPage from "./pages/SummaryPage";
 import ResultPage from "./pages/ResultPage";
 import NotFound from "./pages/NotFound";
+import { QuestionContextProvider } from "./context/UseQuestionContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
 	<QueryClientProvider client={queryClient}>
-		<TooltipProvider>
-			<Toaster />
-			<Sonner />
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<LandingPage />} />
-					<Route path="/intake" element={<IntakePage />} />
-					<Route path="/summary" element={<SummaryPage />} />
-					<Route path="/result" element={<ResultPage />} />
-					{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-					<Route path="*" element={<NotFound />} />
-				</Routes>
-			</BrowserRouter>
-		</TooltipProvider>
+		<QuestionContextProvider>
+			<TooltipProvider>
+				<Toaster />
+				<Sonner />
+				<BrowserRouter>
+					<Routes>
+						<Route path="/" element={<LandingPage />} />
+						<Route path="/intake" element={<IntakePage />} />
+						<Route path="/summary" element={<SummaryPage />} />
+						<Route path="/result" element={<ResultPage />} />
+						{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</BrowserRouter>
+			</TooltipProvider>
+		</QuestionContextProvider>
 	</QueryClientProvider>
 );
 
