@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { AlertCircle, Home } from "lucide-react";
+import { CardSection } from "@/components/CardSection";
 
 type FormData = {
 	bodyPart: string;
@@ -60,19 +61,20 @@ const ResultPage = () => {
 	return (
 		<div className="min-h-screen bg-background flex items-center justify-center p-4">
 			<Card className="max-w-2xl w-full p-8 md:p-12 space-y-8">
-				<div className="space-y-4">
+				<CardSection size="sm">
 					<h1 className="text-3xl md:text-4xl font-bold text-foreground">
 						Assessment Results
 					</h1>
+
 					<div className="p-4 bg-secondary/10 border border-secondary/20 rounded-lg">
 						<h2 className="text-xl font-semibold text-secondary mb-2">
 							{result.condition}
 						</h2>
 						<p className="text-foreground">{result.description}</p>
 					</div>
-				</div>
+				</CardSection>
 
-				<div className="space-y-4">
+				<CardSection size="sm">
 					<h3 className="text-xl font-semibold text-foreground">
 						General Recommendations
 					</h3>
@@ -90,7 +92,7 @@ const ResultPage = () => {
 							</li>
 						))}
 					</ul>
-				</div>
+				</CardSection>
 
 				<div className="p-4 bg-muted/50 border border-border rounded-lg flex gap-3">
 					<AlertCircle className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />

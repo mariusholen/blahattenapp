@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { CardSection } from "@/components/CardSection";
 
 type FormData = {
 	bodyPart: string;
@@ -34,7 +35,7 @@ const SummaryPage = () => {
 	return (
 		<div className="min-h-screen bg-background flex items-center justify-center p-4">
 			<Card className="max-w-2xl w-full p-8 md:p-12 space-y-8">
-				<div className="space-y-4">
+				<CardSection>
 					<h1 className="text-3xl md:text-4xl font-bold text-foreground">
 						Review your answers
 					</h1>
@@ -42,9 +43,9 @@ const SummaryPage = () => {
 						Please review the information you've provided before seeing your
 						results.
 					</p>
-				</div>
+				</CardSection>
 
-				<div className="space-y-4">
+				<CardSection>
 					{summaryItems.map((item, index) => (
 						<div
 							key={index}
@@ -58,7 +59,7 @@ const SummaryPage = () => {
 							</div>
 						</div>
 					))}
-				</div>
+				</CardSection>
 
 				<div className="flex gap-3 pt-4">
 					<Button

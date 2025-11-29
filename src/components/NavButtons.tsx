@@ -6,7 +6,7 @@ type NavButtonsProps = {
 	backText?: string;
 	nextText?: string;
 	isAnswered: boolean;
-	lastStep: boolean;
+	isLastStep: boolean;
 	handleBack: () => void;
 	handleNext: () => void;
 };
@@ -15,7 +15,7 @@ export const NavButtons = ({
 	backText = "Tilbake",
 	nextText = "Neste",
 	isAnswered,
-	lastStep,
+	isLastStep,
 	handleNext,
 	handleBack,
 }: NavButtonsProps) => {
@@ -36,7 +36,7 @@ export const NavButtons = ({
 				size="lg"
 				className="flex-1"
 			>
-				{lastStep ? "Oppsummering" : nextText}
+				{isLastStep ? "Oppsummering" : nextText}
 				<ArrowRight className="ml-2 h-5 w-5" />
 			</Button>
 		</ButtonGroup>
